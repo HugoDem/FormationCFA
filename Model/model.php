@@ -29,7 +29,12 @@ class Model
 	}
 
 	function createUser($user){
-		$this->connexion->exec("INSERT INTO `user`( `nom`, `mail`) VALUES ('".$user->getName()."','".$user->getMail()."')");
+		function createUser($user){
+		$stmt = $this->connexion->prepare("INSERT INTO `user`( `nom`, `mail`,`password`) VALUES (:name,:mail,:password)");
+		$stmt->bindParam(':name', $user->getName());
+		$stmt->bindParam(':mail', $user->getMail());
+		$stmt->bindParam(':password', $user->getPassword());
+		$stmt->execute();
 	}
 	function getUserByEmail($mail){
 
