@@ -1,0 +1,10 @@
+<p id="alert"></p>
+<p id="message">Vous êtes en dehors du formulaire</p>
+<p id="name">Nom : </p>
+<form onmouseenter="inMethod()" onmouseout="out()" action="index.php?action=inscription" method="post" id="form">
+	<input type="text" name="name" placeholder="name" id="n" onchange="changeName()">
+	<input type="text" name="mail" placeholder="mail" id="mail">
+	<input type="password" name="password" placeholder="password">
+</form>
+<button onclick="verifyMail();">Valider</button>
+<script type="text/javascript" src="Vue/index.js"></script>
